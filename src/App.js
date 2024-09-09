@@ -1,10 +1,12 @@
 import "./App.css";
 import React from "react";
-import ChaoSection from "./components/ChaoSection";
+import UserList from "./components/UserList";
 
-function App(){
-    return <>
-      <ChaoSection />
+const App = () => {
+  return (
+    <>
+      <UserList />
     </>
-}
+  );
+};
 export default App;

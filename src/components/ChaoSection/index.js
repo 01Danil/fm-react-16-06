@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import ChaoList from './ChaoList';
+import React, { Component } from "react";
+import ChaoList from "./ChaoSection/ChaoList";
 
 const userDB = [
   {
@@ -32,16 +32,16 @@ class ChaoSection extends Component {
       users: userDB,
     };
   }
-  
+
   sortUsersByName = () => {
     const { users, isStraightSortName } = this.state;
     const copyUsers = [...users];
     //const copyUsers = JSON.parse(JSON.stringify(users));
     copyUsers.sort((prev, next) => {
-      if(prev.fname < next.fname){
+      if (prev.fname < next.fname) {
         return isStraightSortName ? -1 : 1;
       }
-      if(prev.fname > next.fname){
+      if (prev.fname > next.fname) {
         return isStraightSortName ? 1 : -1;
       }
     });
@@ -57,9 +57,9 @@ class ChaoSection extends Component {
     copyUsers.sort((prev, next) => {
       return isStraightSortId ? prev.id - next.id : next.id - prev.id;
     });
-    this.setState({ 
-      users: copyUsers, 
-      isStraightSortId: !isStraightSortId 
+    this.setState({
+      users: copyUsers,
+      isStraightSortId: !isStraightSortId,
     });
   };
   render() {
@@ -76,7 +76,7 @@ class ChaoSection extends Component {
         <button onClick={this.sortUsersById}>
           sort by id {isUp ? "Up" : "Down"}
         </button>
-        <ChaoList users={users}/>
+        <ChaoList users={users} />
       </>
     );
   }
