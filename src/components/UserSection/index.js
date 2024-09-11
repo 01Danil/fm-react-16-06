@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SelectedUsers from "./SelectedUsers";
 import UserList from "./UserList";
+import styles from "./UserSection.module.css";
 
 const userDB = [
   {
@@ -40,10 +41,10 @@ class UserSection extends Component {
   render() {
     const { users } = this.state;
     return (
-      <>
+      <section className={styles.container}>
         <SelectedUsers users={users} />
         <UserList users={users} setUserSelector={this.setUserSelector} />
-      </>
+      </section>
     );
   }
 }
