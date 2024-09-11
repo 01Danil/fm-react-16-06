@@ -1,11 +1,11 @@
 import "./App.css";
 import React, { Component } from "react";
-import UserSection from "./components/UserSection";
+import StopWatch from "./components/StopWatch";
 
 const App = () => {
   return (
     <>
-      <UserSection />
+      <StopWatch />
     </>
   );
 };
