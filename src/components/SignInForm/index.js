@@ -1,4 +1,5 @@
 import React, { Component, createContext } from "react";
+import cx from "classnames";
 import styles from "./SignInForm.module.css";
 const initialState = {
   email: "",
@@ -23,14 +24,10 @@ class SignInForm extends Component {
 
   render() {
     const { email, pwd, emailIsValid, pwdIsValid } = this.state;
-    const emailClass = cx({
-      [styles.input]: true,
+    const emailClass = cx(styles.input, styles.email, {
       [styles.invalid]: emailIsValid,
     });
-    const pwdlClass = cx({
-      [styles.input]: true,
-      [styles.invalid]: pwdIsValid,
-    });
+    const pwdlClass = cx(styles.input, { [styles.invalid]: pwdIsValid });
     return (
       <form className={styles.form} onSubmit={this.handleForm}>
         <input
@@ -56,10 +53,3 @@ class SignInForm extends Component {
 }
 
 export default SignInForm;
-
-function cx(objStyles) {
-  return Object.entries(objStyles)
-    .filter(([className, check]) => check)
-    .map(([className, check]) => className)
-    .join(" ");
-}
